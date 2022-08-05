@@ -4,11 +4,11 @@ import { View,Text, StyleSheet,TextInput, TouchableOpacity, Keyboard, ActivityIn
 const HomeScreen=(navigation)=>{
     const [recipes, setRecipes]=useState();
     const [searchQuery, setSearchQuery]=useState('');
-    const [numberOfRecipes, setNumberOfRecipes]=('1');
+    const [numberOfRecipes, setNumberOfRecipes]=useState('1');
     const [loading, setLoading]=useState(false);
-    const apiId = `f0cdb5bb`
-    const apiKey = `b9b064a3c845d99c4021a78498a63da3`;
-    const apiUrl = `https://api.edamam.com/search?q=${searchQuery}&app_id=${apiId}&app_key=${apiKey}from=1&to=${numberOfRecipes}&calories=591-722&health=alcohol-free`;
+    const apiId = 'bb8681be'
+    const apiKey = `68604c75c32e9d741e1e6a880e3d0866`;
+    const apiUrl = `https://api.edamam.com/search?q=${searchQuery}&app_id=${apiId}&app_key=${apiKey}&to=${numberOfRecipes}&calories=591-722&health=alcohol-free`;
 
     async function callApi(){
         setLoading(true);
@@ -20,7 +20,7 @@ const HomeScreen=(navigation)=>{
         setSearchQuery('')
     }
     useEffect(()=>{
-        setLoading(true)
+        setLoading(false)
         callApi()
     },[])
     return(
