@@ -29,18 +29,16 @@ const HomeScreen=({navigation})=>{
 //    }
     return(
       <View style={styles.container}>
-        <Text style={{fontSize:23,fontWeight:'800', width:'90' ,color:'#40e0d0'}}>
+        <Text style={styles.whatToCook}>
             What Would You Like To Cook Today?!!
         </Text>
-        <View style={{display:'flex',flexDirection:'row'}}>
+        <View style={styles.seconsView}>
             <TextInput placeholder='Search Recipe...'
             style={[styles.inputField]}
             onChangeText={text=>setSearchQuery(text)}
             />
             <TextInput
-            style={[styles.inputField,]}
-                // { width:'20' , fontSize:18,
-        // color:'#008080',fontWeight:'bold'}]}
+            style={[styles.inputField1]}
         value={numberOfRecipes}
         keyboardType='number-pad'
             onChangeText={text=>setNumberOfRecipes(text)}
@@ -53,19 +51,18 @@ const HomeScreen=({navigation})=>{
         >
             <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
-        <SafeAreaView style={{flex:1}}>
-            {loading ? <ActivityIndicator size='large' color='#40e0d0'/>:
+        <SafeAreaView style={styles.safe}>
+            {loading ? <ActivityIndicator style={styles.active}/>:
             <FlatList
-            style={styles.recipes}
             data={recipes}
             renderItem={({item})=>(
                 <View style={styles.recipe}>
                     <Image style={styles.image}
                     source={{uri:`${item.recipe.image}`}}/>
-                    <View style={{padding:20, flexDirection:'row'}}>
+                    <View style={styles.view4}>
                         <Text style={styles.lable}>{`${item.recipe.label}`}</Text>
                         <TouchableOpacity onPress={()=>{navigation.navigate('Details',{recipe:item.recipe})}}>
-                            <Text style={{marginLeft:50,fontSize:20, color:'#40e0d0'}}>
+                            <Text style={styles.detailss}>
                                 Details
                             </Text>
                         </TouchableOpacity>
@@ -84,10 +81,48 @@ const styles = StyleSheet.create({
         alignItems:'center',
         padding:20,   
     },
+    whatToCook:{
+        fontSize:23,
+        fontWeight:'800', 
+        width:'90' ,
+        color:'#40e0d0'
+    },
+    active:{
+        size:'large',
+         color:'#40e0d0'
+    },
+    safe:{
+        flex:1
+    },
+    detailss:{
+        marginLeft:50,
+        fontSize:20,
+        color:'#40e0d0'
+    },
+    view4:{
+        padding:20,
+        flexDirection:'row'
+    },
+    seconsView:{
+        display:'flex',
+        flexDirection:'row'
+    },
     inputField:{
         color:'#40e0d0',
         height:'100%',
         width:'65%',
+        backgroundColor:'white',
+        borderRadius:20,
+        marginLeft:10,
+        marginTop:10,
+        paddingLeft:15
+    },
+    inputField1:{
+        height:'100%',
+        width:'20%' ,
+         fontSize:18,
+        color:'#40e0d0',
+        fontWeight:'bold',
         backgroundColor:'white',
         borderRadius:20,
         marginTop:10,

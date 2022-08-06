@@ -10,62 +10,62 @@ const Details=({route})=>{
       <ScrollView>
         <View style={styles.details}>
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Ingredients:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.ingredients.map((item)=>item['food'])}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Food category:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.ingredients.map((item)=>item['foodCategory'])}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Calories:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.calories}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Label:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.label}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Meal Type:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.mealType}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Description:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.ingredientLines}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                Diet Lable:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.dietLabels}`}</Text>
         </View>
 
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Cuisine Type:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.cuisineType}`}</Text>
         </View>
         <View style={styles.item}>
-            <Text style={{fontSize:22, color:'#40e0d0',fontWeight:'800' }}>
+            <Text style={styles.sizes}>
                 Dish Type:
             </Text>
             <Text style={styles.ingredients}>{`${recipe.dishType}`}</Text>
@@ -78,6 +78,11 @@ const styles=StyleSheet.create({
     details:{
         marginBottom:30,
         padding:5
+    },
+    sizes:{
+        fontSize:22,
+         color:'#40e0d0',
+         fontWeight:'800'
     },
     ingredients:{
         fontSize:22,
