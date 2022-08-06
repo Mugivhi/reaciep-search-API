@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View,Text, StyleSheet,TextInput, TouchableOpacity, Keyboard, ActivityIndicator,FlatList, SafeAreaView,Image } from "react-native";
 
-const HomeScreen=(navigation)=>{
+
+const HomeScreen=({navigation})=>{
     const [recipes, setRecipes]=useState();
     const [searchQuery, setSearchQuery]=useState('');
-    const [numberOfRecipes, setNumberOfRecipes]=useState('1');
+    const [numberOfRecipes, setNumberOfRecipes]=useState('5');
     const [loading, setLoading]=useState(false);
     const apiId = 'bb8681be'
     const apiKey = `68604c75c32e9d741e1e6a880e3d0866`;
@@ -23,19 +24,23 @@ const HomeScreen=(navigation)=>{
         setLoading(false)
         callApi()
     },[])
+//    const vieDtails=({navigation})=>{
+//     navigation.navigate('Details')
+//    }
     return(
       <View style={styles.container}>
-        <Text style={{fontSize:23,fontWeight:'800', width:'90' ,color:'#008080'}}>
+        <Text style={{fontSize:23,fontWeight:'800', width:'90' ,color:'#40e0d0'}}>
             What Would You Like To Cook Today?!!
         </Text>
-        <View>
+        <View style={{display:'flex',flexDirection:'row'}}>
             <TextInput placeholder='Search Recipe...'
-            style={[styles.inputField,]}
+            style={[styles.inputField]}
             onChangeText={text=>setSearchQuery(text)}
             />
             <TextInput
-            style={[styles.inputField,{ width:'20' , fontSize:18,
-        color:'#008080',fontWeight:'bold'}]}
+            style={[styles.inputField,]}
+                // { width:'20' , fontSize:18,
+        // color:'#008080',fontWeight:'bold'}]}
         value={numberOfRecipes}
         keyboardType='number-pad'
             onChangeText={text=>setNumberOfRecipes(text)}
@@ -49,7 +54,7 @@ const HomeScreen=(navigation)=>{
             <Text style={styles.buttonText}>Search</Text>
         </TouchableOpacity>
         <SafeAreaView style={{flex:1}}>
-            {loading ? <ActivityIndicator size='large' color='#008080'/>:
+            {loading ? <ActivityIndicator size='large' color='#40e0d0'/>:
             <FlatList
             style={styles.recipes}
             data={recipes}
@@ -58,9 +63,9 @@ const HomeScreen=(navigation)=>{
                     <Image style={styles.image}
                     source={{uri:`${item.recipe.image}`}}/>
                     <View style={{padding:20, flexDirection:'row'}}>
-                        <Text style={styles.lable}>{item.recipe.lable}</Text>
+                        <Text style={styles.lable}>{`${item.recipe.label}`}</Text>
                         <TouchableOpacity onPress={()=>{navigation.navigate('Details',{recipe:item.recipe})}}>
-                            <Text style={{marginLeft:50,fontSize:20, color:'#008080'}}>
+                            <Text style={{marginLeft:50,fontSize:20, color:'#40e0d0'}}>
                                 Details
                             </Text>
                         </TouchableOpacity>
@@ -80,8 +85,9 @@ const styles = StyleSheet.create({
         padding:20,   
     },
     inputField:{
-        height:'120%',
-        width:'60%',
+        color:'#40e0d0',
+        height:'100%',
+        width:'65%',
         backgroundColor:'white',
         borderRadius:20,
         marginTop:10,
@@ -91,8 +97,8 @@ const styles = StyleSheet.create({
         flexDirection:'row'
     },
     button:{
-        backgroundColor:'#008080',
-        width:'90%',
+        backgroundColor:'#40e0d0',
+        width:'80%',
         alignItems:'center',
         margin:15,
         height:35,
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
     lable:{
         fontSize:15,
         width:'60',
-        color:'#008080',
+        color:'#40e0d0',
         fontWeight:'700',
     },
     recipe:{
