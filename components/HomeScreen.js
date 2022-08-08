@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     whatToCook:{
         fontSize:23,
         fontWeight:'800', 
-        width:'90' ,
+        width:'90%' ,
         color:'#40e0d0'
     },
     active:{

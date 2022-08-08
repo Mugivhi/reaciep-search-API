@@ -83,7 +83,7 @@ const styles=StyleSheet.create({
     sizes:{
         fontSize:22,
          color:'#40e0d0',
-         fontWeight:800
+         fontWeight:'800'
     },
     ingredients:{
         fontSize:22,
