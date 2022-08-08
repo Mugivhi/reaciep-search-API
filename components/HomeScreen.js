@@ -74,6 +74,7 @@ const HomeScreen=({navigation})=>{
       </View>
     )
 }
+export default HomeScreen;
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     },
     lable:{
         fontSize:15,
-        width:'60',
+        width:'60%',
         color:'#40e0d0',
         fontWeight:'700',
     },
@@ -170,5 +171,3 @@ const styles = StyleSheet.create({
     }
 
 })
-
-export default HomeScreen;

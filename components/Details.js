@@ -74,6 +74,7 @@ const Details=({route})=>{
       </ScrollView>
     )
 }
+export default Details;
 const styles=StyleSheet.create({
     details:{
         marginBottom:30,
@@ -82,7 +83,7 @@ const styles=StyleSheet.create({
     sizes:{
         fontSize:22,
          color:'#40e0d0',
-         fontWeight:'800'
+         fontWeight:800
     },
     ingredients:{
         fontSize:22,
@@ -103,4 +104,3 @@ const styles=StyleSheet.create({
         flexWrap:'wrap'
     }
 })
-export default Details;
