@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, StyleSheet,View } from "react-native";
+import { ScrollView, Text, StyleSheet,View ,Image} from "react-native";
 
 
 
@@ -9,6 +9,14 @@ const Details=({route})=>{
     return(
       <ScrollView>
         <View style={styles.details}>
+        <View styel={styles.image}>
+                <Image style={styles.image}
+                source={{uri:`${recipe.image}`}}/>
+            
+        <View>
+            <Text style={styles.sizes}>{`${recipe.label}`}</Text>
+        </View>
+        </View>
         <View style={styles.item}>
             <Text style={styles.sizes}>
                 Ingredients:
@@ -30,13 +38,7 @@ const Details=({route})=>{
             <Text style={styles.ingredients}>{`${recipe.calories}`}</Text>
         </View>
 
-        <View style={styles.item}>
-            <Text style={styles.sizes}>
-                Label:
-            </Text>
-            <Text style={styles.ingredients}>{`${recipe.label}`}</Text>
-        </View>
-
+        
         <View style={styles.item}>
             <Text style={styles.sizes}>
                 Meal Type:
@@ -79,6 +81,11 @@ const styles=StyleSheet.create({
     details:{
         marginBottom:30,
         padding:5
+    },
+    image:{
+        width:'100%',
+        height:300,
+        borderRadius:20
     },
     sizes:{
         fontSize:22,
