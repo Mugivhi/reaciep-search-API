@@ -24,9 +24,6 @@ const HomeScreen=({navigation})=>{
         setLoading(false)
         callApi()
     },[])
-//    const vieDtails=({navigation})=>{
-//     navigation.navigate('Details')
-//    }
     return(
       <View style={styles.container}>
         <Text style={styles.whatToCook}>
